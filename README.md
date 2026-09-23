@@ -2,9 +2,10 @@
 
 A modern, fast, and sleek browser extension to translate entire webpages in real-time powered by **Google Translate**. Designed with a modern capsule-style popup interface, instant language switching, dynamic content support, multi-tier fallback resilience, and over **250+ supported languages**.
 
+<img width="2732" height="1536" alt="Translate" src="https://github.com/user-attachments/assets/902369a5-79ab-41c7-b80b-02564eadc7c5" />
+
 Compatible with all major browsers: **Google Chrome, Brave, Microsoft Edge, Opera (Chromium-based)** and **Mozilla Firefox**.
 
----
 
 ### <a name="Features"></a> ⭐ Features
 
@@ -21,7 +22,7 @@ Compatible with all major browsers: **Google Chrome, Brave, Microsoft Edge, Oper
 - **Right-Click Context Menu:** One-click full page translation from the browser context menu.
 - **Privacy-Focused:** Direct client-side requests to translation endpoints without any third-party tracking, analytics, or external servers.
 
----
+
 
 ### <a name="RepositoryStructure"></a> 📁 Repository Structure
 
@@ -49,7 +50,7 @@ Compatible with all major browsers: **Google Chrome, Brave, Microsoft Edge, Oper
 └── .gitignore         # Prevents tracking of OS metadata, IDE configurations, etc.
 ```
 
----
+
 
 ### <a name="InstallationUsage"></a> ⚙️ Installation & Usage
 
@@ -89,7 +90,7 @@ firefox/
 
 4. The extension is now loaded and active.
 
----
+
 
 ### <a name="PrivacySafety"></a> 🛡️ Privacy & Safety
 
@@ -97,12 +98,12 @@ firefox/
 - **Direct Communication:** Translation requests are sent directly from your browser to Google Translate servers.
 - **Local In-Memory Cache:** Cached translations exist only within the active browser session memory and are never sent to external servers.
 
----
+
 
 > [!WARNING]
 > Machine translations are automated and may occasionally contain inaccuracies. Translations are powered by Google Translate services.
 
----
+
 
 ### <a name="Copyright2026"></a> Copyright © 2026
 
