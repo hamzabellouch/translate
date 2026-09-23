@@ -1,0 +1,430 @@
+/* ==========================================================
+   Google Translate Capsule - Browser Style Capsule Grid UI (English LTR)
+   Matching the User-Agent Selector Capsule Interface Style (Firefox)
+   ========================================================== */
+
+/* Twemoji Country Flags Polyfill */
+@font-face {
+  font-family: "Twemoji Country Flags";
+  src: url("fonts/TwemojiCountryFlags.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E007F;
+}
+
+:root {
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --active-bg: #f0f7ff;
+  --active-border: #3b82f6;
+  --active-text: #1d4ed8;
+  --active-desc: #3b82f6;
+  --btn-bg: #ffffff;
+  --btn-border: #e2e8f0;
+  --btn-hover-bg: #f8fafc;
+  --btn-hover-border: #cbd5e1;
+  --text-primary: #1e293b;
+  --text-title: #1e293b;
+  --text-desc: #64748b;
+  --section-label: #64748b;
+  --divider-color: #f1f5f9;
+  --radius-capsule: 9999px;
+  --radius-card: 12px;
+  --success: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Twemoji Country Flags", 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+}
+
+body {
+  width: 380px;
+  max-height: 590px;
+  background-color: #ffffff;
+  color: var(--text-title);
+  padding: 16px 14px;
+  overflow-x: hidden;
+  direction: ltr;
+}
+
+.capsule-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Main Title Header */
+.app-title-bar {
+  text-align: center;
+}
+
+.main-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Header */
+.section-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--section-label);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+/* 2-Column Capsule Grid */
+.capsule-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* Capsule / Pill Button (Unified sizing across all views) */
+.capsule-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-capsule);
+  padding: 8px 14px;
+  cursor: pointer;
+  text-align: left;
+  direction: ltr;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  width: 100%;
+}
+
+.capsule-btn:hover {
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+  transform: translateY(-1px);
+}
+
+.capsule-btn:active {
+  transform: translateY(0);
+}
+
+/* More Languages Capsule Button */
+.more-capsule-btn {
+  background-color: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  justify-content: flex-start;
+  grid-column: span 2;
+}
+
+.more-capsule-btn:hover {
+  background-color: #eff6ff;
+  border-color: var(--active-border);
+}
+
+/* Active / Selected Capsule Style */
+.capsule-btn.active,
+.capsule-btn.active-source {
+  background-color: var(--active-bg);
+  border: 1.5px solid var(--active-border);
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.12);
+}
+
+.capsule-btn.active .capsule-name,
+.capsule-btn.active-source .capsule-name {
+  color: var(--active-text);
+  font-weight: 700;
+}
+
+.capsule-btn.active .capsule-desc,
+.capsule-btn.active-source .capsule-desc {
+  color: var(--active-desc);
+  font-weight: 500;
+}
+
+.capsule-btn.active .icon-svg,
+.capsule-btn.active-source .icon-svg {
+  fill: var(--primary-blue);
+}
+
+/* Icon Box inside Pill */
+.capsule-icon-box {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.icon-svg {
+  width: 18px;
+  height: 18px;
+  fill: #475569;
+  transition: fill 0.18s;
+}
+
+.custom-flag-svg {
+  width: 20px;
+  height: 14px;
+  border-radius: 2.5px;
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+/* Text Column inside Pill */
+.capsule-text-col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 1.25;
+}
+
+.capsule-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-title);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.capsule-desc {
+  font-size: 10px;
+  color: var(--text-desc);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status Bar Footer */
+.status-footer {
+  text-align: center;
+  padding: 6px 10px;
+  background-color: #f8fafc;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-capsule);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-desc);
+}
+
+.status-footer.success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.status-footer.loading {
+  background-color: #eff6ff;
+  color: var(--primary-blue);
+  border-color: #bfdbfe;
+}
+
+/* ==========================================================
+   View 2: All 243 Languages Browser & Search Styles
+   ========================================================== */
+
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 2px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-capsule);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.back-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.back-icon-svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.header-title-box {
+  flex: 1;
+  text-align: center;
+  margin-right: 54px;
+}
+
+.view-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.view-subtitle {
+  font-size: 10px;
+  color: var(--text-desc);
+  font-weight: 500;
+}
+
+/* Search Container */
+.search-container {
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-capsule);
+  padding: 6px 12px;
+  transition: all 0.18s ease;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--primary-blue);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.search-icon-svg {
+  width: 16px;
+  height: 16px;
+  fill: #64748b;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+#lang-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12.5px;
+  color: var(--text-title);
+  font-family: inherit;
+}
+
+#lang-search-input::placeholder {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.clear-search-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.clear-search-btn:hover {
+  color: #334155;
+}
+
+/* Scrollable Languages List */
+.languages-scroll-list {
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.languages-scroll-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.languages-scroll-list::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.languages-scroll-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+.languages-scroll-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Alphabet Section Grouping */
+.alpha-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alpha-letter-badge {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: 0.8px;
+  padding: 4px 6px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alpha-letter-badge span.count {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+/* 2-Column Grid matching exactly the main grid */
+.alpha-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.no-results-msg {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 12px;
+  color: #94a3b8;
+}

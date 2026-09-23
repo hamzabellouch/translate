@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Translate - Page Translator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Main View -->
+  <div id="main-view" class="capsule-container view-panel active">
+    <!-- Main Title Header -->
+    <div class="app-title-bar">
+      <h1 class="main-title">CHOOSE YOUR LANGUAGE</h1>
+    </div>
+
+    <!-- Section 1: Page Controls / Default Language -->
+    <div class="section-group">
+      <div class="section-label">PAGE CONTROLS</div>
+      <div class="capsule-grid-2">
+        <button id="btn-default-lang" class="capsule-btn" title="Translate to default language">
+          <div class="capsule-icon-box">
+            <svg viewBox="0 0 24 24" class="icon-svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">System Default</span>
+            <span class="capsule-desc" id="label-default-lang-desc">Default Language</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Section 2: Target Language Selection Grid -->
+    <div class="section-group">
+      <div class="section-label">TARGET LANGUAGE</div>
+      <div class="capsule-grid-2" id="target-languages-grid">
+        <button class="capsule-btn lang-target-btn" data-lang="en">
+          <div class="capsule-icon-box">🇬🇧</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">English</span>
+            <span class="capsule-desc">English</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="ar">
+          <div class="capsule-icon-box">🇲🇦</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Arabic</span>
+            <span class="capsule-desc">العربية</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="fr">
+          <div class="capsule-icon-box">🇫🇷</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">French</span>
+            <span class="capsule-desc">Français</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="es">
+          <div class="capsule-icon-box">🇪🇸</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Spanish</span>
+            <span class="capsule-desc">Español</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="de">
+          <div class="capsule-icon-box">🇩🇪</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">German</span>
+            <span class="capsule-desc">Deutsch</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="tr">
+          <div class="capsule-icon-box">🇹🇷</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Turkish</span>
+            <span class="capsule-desc">Türkçe</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="ru">
+          <div class="capsule-icon-box">🇷🇺</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Russian</span>
+            <span class="capsule-desc">Русский</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="zh-CN">
+          <div class="capsule-icon-box">🇨🇳</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Chinese</span>
+            <span class="capsule-desc">中文 (简体)</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="ja">
+          <div class="capsule-icon-box">🇯🇵</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Japanese</span>
+            <span class="capsule-desc">日本語</span>
+          </div>
+        </button>
+
+        <button class="capsule-btn lang-target-btn" data-lang="ko">
+          <div class="capsule-icon-box">🇰🇷</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name">Korean</span>
+            <span class="capsule-desc">한국어</span>
+          </div>
+        </button>
+
+        <!-- More Languages Button -->
+        <button class="capsule-btn more-capsule-btn" id="btn-open-more" title="View all 250 languages">
+          <div class="capsule-icon-box">🌍</div>
+          <div class="capsule-text-col">
+            <span class="capsule-name" id="label-more-name">More Languages</span>
+            <span class="capsule-desc" id="label-more-desc">250 Languages (A-Z)</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Status Footer -->
+    <div class="status-footer" id="status-bar">
+      <span id="status-text">Original webpage</span>
+    </div>
+  </div>
+
+  <!-- View 2: All 250 Languages Browser & Search -->
+  <div id="all-languages-view" class="capsule-container view-panel" style="display: none;">
+    <!-- Navigation Header -->
+    <div class="view-header">
+      <button id="btn-back-main" class="back-btn" title="Back to main menu">
+        <svg viewBox="0 0 24 24" class="back-icon-svg">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        <span>Back</span>
+      </button>
+      <div class="header-title-box">
+        <h2 class="view-title">ALL LANGUAGES</h2>
+        <span class="view-subtitle" id="lang-count-badge">250 Languages</span>
+      </div>
+    </div>
+
+    <!-- Search Input Box -->
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <svg viewBox="0 0 24 24" class="search-icon-svg">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" id="lang-search-input" placeholder="Search 250 languages..." autocomplete="off">
+        <button id="btn-clear-search" class="clear-search-btn" style="display: none;" title="Clear search">✕</button>
+      </div>
+    </div>
+
+    <!-- Alphabet Scroll List Container -->
+    <div class="languages-scroll-list" id="languages-list-container">
+      <!-- Generated Alphabetical Sections & Items -->
+    </div>
+
+    <!-- Status Footer for All Languages view -->
+    <div class="status-footer" id="status-bar-all">
+      <span id="status-text-all">Select a language to translate</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
